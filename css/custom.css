@@ -1,0 +1,20 @@
+.recent-posts {
+    background: url('/img/background_2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.recent-post-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.recent-post-item:hover {
+    transform: translateY(-5px);
+}
