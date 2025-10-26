@@ -18,3 +18,33 @@
 .recent-post-item:hover {
     transform: translateY(-5px);
 }
+
+/* Search styling */
+.search-dialog {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.search-nav {
+    background: linear-gradient(45deg, #B8860B, #FFD700);
+}
+
+/* Social icons hover effect */
+#aside-content .card-info .social-icons a:hover {
+    background: linear-gradient(45deg, #B8860B, #FFD700);
+    color: #000 !important;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* About me card styling */
+#aside-content .card-info {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#aside-content .card-info .author-info__description {
+    color: #DAA520;
+    font-weight: 500;
+}
