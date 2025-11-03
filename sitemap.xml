@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://0pwn0.github.io/img/favicon/manifest.json</loc>
+    <loc>https://0pwn0.github.io/2025/05/21/HackTheBox-Infiltrator-WriteUp/</loc>
     
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://0pwn0.github.io/2025/11/04/HackTheBox-Fortress-AWS-WriteUp/</loc>
+    
+    <lastmod>2025-11-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://0pwn0.github.io/2025/10/20/HackTheBox-Hercules-WriteUp/</loc>
+    
+    <lastmod>2025-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://0pwn0.github.io/img/favicon/manifest.json</loc>
     
     <lastmod>2025-10-26</lastmod>
     
@@ -65,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://0pwn0.github.io/2025/07/06/HackTheBox-Voleur-WriteUp/</loc>
+    <loc>https://0pwn0.github.io/2025/05/18/HackTheBox-Puppy-WriteUp/</loc>
     
     <lastmod>2025-10-22</lastmod>
     
@@ -74,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://0pwn0.github.io/2025/05/18/HackTheBox-Puppy-WriteUp/</loc>
+    <loc>https://0pwn0.github.io/2025/07/06/HackTheBox-Voleur-WriteUp/</loc>
     
     <lastmod>2025-10-22</lastmod>
     
@@ -121,7 +139,7 @@
 
   <url>
     <loc>https://0pwn0.github.io/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,105 +147,105 @@
   
   <url>
     <loc>https://0pwn0.github.io/tags/HackTheBox/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/Writeup/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://0pwn0.github.io/tags/Linux/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://0pwn0.github.io/tags/Easy/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/Windows/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/Insane/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://0pwn0.github.io/tags/Medium/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <loc>https://0pwn0.github.io/tags/Linux/</loc>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://0pwn0.github.io/tags/Cheatsheet/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://0pwn0.github.io/tags/BloodyAD/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <loc>https://0pwn0.github.io/tags/Easy/</loc>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/Certipy/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://0pwn0.github.io/tags/Fortra/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <loc>https://0pwn0.github.io/tags/Medium/</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://0pwn0.github.io/tags/Cheatsheet/</loc>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/ADCS/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://0pwn0.github.io/tags/BloodyAD/</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://0pwn0.github.io/tags/Fortra/</loc>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/silver-c2/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/CommandAndControl/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/tags/evil-winrm/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -236,14 +254,14 @@
   
   <url>
     <loc>https://0pwn0.github.io/categories/HackTheBox/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://0pwn0.github.io/categories/Cheatsheet/</loc>
-    <lastmod>2025-10-26</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

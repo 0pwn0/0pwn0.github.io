@@ -1,29 +1,32 @@
-/* Dark mode by default */
-:root {
-  --global-bg: #121212;
-  --font-color: #F0F0F0;
-  --hr-border: rgba(255, 255, 255, 0.4);
-  --hr-before-color: rgba(255, 255, 255, 0.7);
-  --search-bg: #121212;
-  --search-input-color: #F0F0F0;
-  --search-result-title: #F0F0F0;
-  --preloader-bg: #121212;
-  --preloader-color: #F0F0F0;
-  --tab-border-color: #42b983;
-  --tab-botton-bg: #121212;
-  --tab-botton-color: #F0F0F0;
-  --tab-button-hover-bg: #42b983;
-  --tab-button-active-bg: #42b983;
-  --card-bg: #1a1a1a;
-  --sidebar-bg: #1a1a1a;
-  --btn-hover-color: #42b983;
-  --btn-color: #F0F0F0;
-  --btn-bg: #121212;
-  --text-bg-hover: #42b983;
+[data-theme="dark"] {
+    --global-bg: #121212;
+    --font-color: #F0F0F0;
+    --hr-border: rgba(255, 255, 255, 0.4);
+    --hr-before-color: rgba(255, 255, 255, 0.7);
+    --search-bg: #121212;
+    --search-input-color: #F0F0F0;
+    --search-result-title: #F0F0F0;
+    --preloader-bg: #121212;
+    --preloader-color: #F0F0F0;
+    --tab-border-color: #DAA520;
+    --tab-botton-bg: #121212;
+    --tab-botton-color: #F0F0F0;
+    --tab-button-hover-bg: #DAA520;
+    --tab-button-active-bg: #DAA520;
+    --card-bg: #1a1a1a;
+    --sidebar-bg: #1a1a1a;
+    --btn-hover-color: #DAA520;
+    --btn-color: #F0F0F0;
+    --btn-bg: #121212;
+    --text-bg-hover: #DAA520;
 }
 
-/* Force dark mode */
-[data-theme="dark"] {
-  --global-bg: #121212 !important;
-  --font-color: #F0F0F0 !important;
+[data-theme="dark"] .recent-post-item {
+    background: rgba(26, 26, 26, 0.95);
+    color: #F0F0F0;
+}
+
+[data-theme="dark"] .article-sort-item {
+    background: rgba(26, 26, 26, 0.95);
+    color: #F0F0F0;
 }
