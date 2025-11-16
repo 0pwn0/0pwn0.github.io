@@ -39,12 +39,19 @@
 
 /* About me card styling */
 #aside-content .card-info {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     padding: 20px;
+    border: 1px solid #ddd;
 }
 
 #aside-content .card-info .author-info__description {
     color: #DAA520;
     font-weight: 500;
+}
+
+/* Darkmode override for card-info */
+[data-theme="dark"] #aside-content .card-info {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
