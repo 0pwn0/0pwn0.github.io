@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HTB CPTS Cheatsheet - SQL Map | Welcome to 0pwn0's Blog</title><meta name="author" content="0pwn0"><meta name="copyright" content="0pwn0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#000000"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTB CPTS Cheatsheet - SQL Map">
+<meta property="og:url" content="https://0pwn0.github.io/2024/12/23/SQLmap/index.html">
+<meta property="og:site_name" content="Welcome to 0pwn0&#39;s Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://0pwn0.github.io/img/banners/CPTS_cheatsheet_banner.png">
+<meta property="article:published_time" content="2024-12-22T17:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-24T12:22:08.116Z">
+<meta property="article:author" content="0pwn0">
+<meta property="article:tag" content="cheatsheet">
+<meta property="article:tag" content="cpts">
+<meta property="article:tag" content="hackthebox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://0pwn0.github.io/img/banners/CPTS_cheatsheet_banner.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTB CPTS Cheatsheet - SQL Map",
+  "url": "https://0pwn0.github.io/2024/12/23/SQLmap/",
+  "image": "https://0pwn0.github.io/img/banners/CPTS_cheatsheet_banner.png",
+  "datePublished": "2024-12-22T17:00:00.000Z",
+  "dateModified": "2025-12-24T12:22:08.116Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "0pwn0",
+      "url": "https://0pwn0.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://0pwn0.github.io/2024/12/23/SQLmap/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HTB CPTS Cheatsheet - SQL Map',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/darkmode.css"><link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"><link rel="manifest" href="/img/favicon/manifest.json"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="Welcome to 0pwn0's Blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(/url(/img/background_1.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avt.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/banners/CPTS_cheatsheet_banner.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/avt.jpg" alt="Logo"><span class="site-name">Welcome to 0pwn0's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">HTB CPTS Cheatsheet - SQL Map</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">HTB CPTS Cheatsheet - SQL Map</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-12-22T17:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-24T12:22:08.116Z" title="Updated 2025-12-24 19:22:08">2025-12-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CPTS/">CPTS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="01a9f5d30137216278e571835c27bf0b19749fcd6b159ed9a6c2e3aeceac5d08">4cef781abbd5206dc8b40ba2cfbae5bb223b8e8686f43d15c4e30a267b08edb6bd1f839fd25ba9088072070fb36579e605e659df8174c135ee2ea1d11928ff16bdce925a3f6d57d41a40e6bf4f24b0ac0197f1460306b066c649f0159fef5dc603e01621f0af90977eaf8916f992b3990db8b26e037d376c958546296859a05e0a406db921ed828ecf9b0a4e55e42f5b1116f0a62c838d7015febefdb6847528957b2ce538a3190be18365362d66904c1381ba1366af3dca3dfa3cb4af2d4f0af154fc9d00c27026fa00d6e530f0851cf9046f0c5eb783d8e6e3751dbce98cdefacdb3645aed0887927c534d42af6cf05524b896c483fb16670cad2048ac33a8eacb74c417f6b27b4d913334ea0268b87d0a19d2dfdce46c0d5535698d9da5575bf75d37ca9bc5d32419a4adbea2ed7616d1d8f25e69dffdb8d722b41f0d7d1892c98bbaf1fa4e1b9340cfcaddbf443aa4f53e0445e5c7e50b0230a54d70a4d3faa6961d3e87502437eba3dc42e3f0628a06e12f1b55181bf19efd229dca846eed7a95a5105218cb02ca2bd69a320667ef796c37874d12e339c883c444b4cd445a5f84b6a01fb336a25e4f3049be3907f5a4c370335955dd260d3b18c6a3da88c78ece85616b05c8f7bd33bc3036a42830803ca80ba6c990377371b4821fc322cd5d04e6d03e2535cbcef0c047bfc9304185eee5af230bd1a24516f8f51c291ffcb5df61b31b187065887fab22f34e4fc74b695d94c7297268708e1068b72a7c9d55501ed4b39b35da5036fc94009cb904e08409d5dc411b77758633f8ae444407dc0a70961beace63a0bc5d0ed031fda55ed1b5480d84c49f990bbf9f34d8581374d0fc79ce8b05cc58c52de3f7bb546571c71dcc9e4abc99a12f262de250f74cdc1a65512bbb7fee3572646f1f04e004f203ea54a39308f92a205e90cfd87c9f2e171899ef1d89021279afbc5947366b6d9efc04521c92bd3958931572a089dd9bd46b2ac05d08733e12e823cc0b0a869d9449bedbb4385bbbc4892121496ff3161ce427f2c4236f3413d3e6991b7e66d94a58ec4263c67eb153f0d80cc592f0c43aa2753d229121ed5c29bf5bc6615308b56c5c505ad7bef14ef6f980d7ec8693aa21b7c588cd3feaab2cf15681fce57d48176117bfff4b1e8deece4912c4de0e8366eea77cea40b955910fc0d2528cdf16e8e553e15bc7728471568eab9612219859b317ff7929b1411571ca5135df8a16a11358d3790aaf85d257a67a3caf1ab96c8fa031d0dd1c449c8d50968842c142a870004993d6a38af95256221c5f03831c2518b73838d6ea6dc6a2e36a150229dc1accbea89b11f737d567dea241569aea3d9181b477f7873cd0a898fd4632f7ea2ce1d96ea5e4a676a8fd0d39903e5227e9fbd13cfefa402d522a226fe636456fa8988cf29f09a05b63190e01e651460e5211bf99537f11f3f1ee5c09e8b7965baeb321c01ef8caf3a5df60c22c41e95f1a10706ae696272fe7b2e83e8ddcd74f68948e927cea2a0e49c17296719da96c88a2f1cbad2c0673e728e6791e7d8301ec725eec74120513c4f2e5646fd661832480d4a4f0fb92847a5c049356faa9e2271a0c6b5b36f6a71f6b098b0299294bf78d7a6bee33640d5904295d10c722436967ab42c7b07209f139013a67f51aa01430434c135617c0b585776f1cc0452c21ef1aa94de6aab354b32e71540f288e3c559e342627978a01118a09c8f2f0b5036bea0df68271769359ca404f5c6217bfa01e7d26cc30a01dd338e2e7534e29a02bcd1918eb6a2e8801c528c892d8ed3da532149f1e1c0c781d738db585af38edf693ca3d7ab3bab2684aaa2fa92b823a50ef96fc74356afcf7d187dd286635e9b6152d5b3a3787d0b6cef9219f3e3da2151fb30b7d128188bdc2e7a7d8fbc1c9119ae11e0d9ccb08ca26be5361c7c736b483de3cf9dbc71ee833bb75c3cb318e4ea13a535f2e7c4dfbd000960ce201d70dabc8b24d8d7edd04aa273db90cc8ee0460c875986f5796fd8e54c5fa45eaadab3a74709740399b3f57a74d6c66827bd3c2f05c8b3183cfb8cd105c26614540129fb79c0713da0372ad4bf3c78789e6c23471e3fde455ca0140911eee84c9aca7b3e4c42ef18083130334a822f467440484f2cb142627a9141fef02119adc777dabc65295d73ae71033abfd38e1f5ea629ab10d74213e2206c8728760a2289c6622b8ebda098a5374252c53518d303a33277c08fa8186af9cf2e3e37750b37833c840048628e678cc1aa6185db73406108f6eb3eda1cdc01bb7ff302e5d0ee838ef81a006e12dd81709bd6debff34712bee2b34fae85d569efee3e7c9e34f2b253cdaf5c06b0366bb23b762a31fe82dbbca8a7f609a91f29adf75f5ae1b79609bcc8bd82acfab6241df70a809cc2afbc751532e51a8464a21978fe93945ed2dcec9e6b9e4e992f173d729531fa877aea9321311ece5bb5aa126b53f5eee5b64c81cd979ac558ff0872a3e343c40eeb19b23486f6cfdc71207d293b20d84317b6758a78ada7e94af4c08045c2c869c9383d9ecfe512e79307e214407af3003a3a7ec217c740589df6c7d1d6105a201d18b6b8ad52d10ea2e1ac1b78f13eec8f69d1cca1adbc9c9daf2849aa347edca4e8cf5cd2c7bf591b799bc570008b50454668a2f7a37fa7e7296a3fb5e369f0f8a12bd9e65149e267c0869c30d54870db0fb25cfe5a923cc99f21fb71486f55e677d420ffbb08c4045b97ef0fd86db98561b2a74b77c585280f4ee815d73a9cbd406f05cce2c43da93a082d1134fcab8f53bca305effea78a1fe48b96190581fac6ef8b577f805f0734e360c74a69d3e7f2deb222ed8cde94ee65503b3db39a72e8bb30b37e36d3d546c0bb5ed5246af4e8c42f9b53e942816a4ed34e1734c1c6113184db45cb3844f84fa51ed657e3cee62c1962d1691e5d21995e785a711a9ff1a92ea59f360212bb604bd615f962cabe87ce38d501cc971f65b063798579e1e8ac71b7f72c8574d0262f1d96c5c35e4a4d0b25ced77a903d5b0eedc7bd6809164943a51d3526c0cd76f3672319fca5f67e8f83c11c30f83b540aa7f6f41c2de90c75764d47b6cf1ab1fcc35d14cabbf744a3c8a71d98b0b671d431b0d76e2276e6829b51c44c707a85c2bb9cff7f3096c069c71fe3c7cf953cf563d6a9d4d143e0535d4b88003ffc4c1942dea576c7d3afaf6744b319bb2bc9cf3ccb454180591841cc5bf91da6b9ce2a3213b12f3908a9ef6b020a451cac5e3e87eecf411b96753ef0ad0b059de65179ce10f1ffa3046d5601db3b504982b4e58e9e9179b000548b4565a7de6abeb27907caea87dcd4dff337e31a97e01442d42509e96c9afdc2a7d6ba9c6eb5d1cbcd1dbbcd6346890aa86beb1eee8a773de47ae1793ce9a569e963841599b55c8967707260da8bb188aad70c80b17737d344fce8f993d7f3fda9b90df612806c1ae3b981461acc8b8eeb0dbd4561d4a21e2f4fef22e628ca803149be6b7ba8c6b61725c0a4573e8a264bb9f2ac0e6dae7f75907b9e3c23bb1c192e280c3921a0e690caadb83efca783c72dacf127d9e6a8d23cc61e192c08ffd46248a40d72c1af9e6cebf2d9e67ff13a22c93afaaf847af7b486f6eb6c28974ff1f619c059b9c0fda665a232c3be10e12368c354bfcba56ad15e813358c4da6da768c0aa21283fbc36b52c64ee636ac7aaadd1044dac4c3f1fede0edab5ab0d1195caae928931acf9395148960b3876e9bfd9de9a11804cad9591fcfae589a3985709886c7f7e0e2807de0c8063141dff7675cc659df08affdc3e4d0eb33181a931b1258dc9838da14f569f2d9d6ca9b8f2de347959dea6abc98873d8fe34896cc2c1c0c87736d2dfd2160b0eb6775360a2d9848093aae85ddfcb7d614b7e9e1bf70adaa2f466195dfe7a8f676282d8aea81237ed5e945adc7346d92d942a2612d35990ae53f68ee6a7d511b2517d66eaf1e18b69660b6ebdf83b86521a3fb74be83a063bef4cfc6593d22a3e40067e906eacf9cedea5524c9afae0dabbb7ee1c8ae08a27ab91d0b1c4cf42d72f7e29900283e03f68ba0aeb54ec93d08a2796357b333b5ef0cf912140dbfd8265c11cfe45d5eb0c9f254cd1df0fd03eba051bae5a44536a7a316469e4b9d56eac86acbc9bac53b515a9eb1e197e77de6f5946b38b233ba5ae46e28c3417900835d9566bf370dc3653f8371ae085c1e4cea176d4e1d5f28148c3539c52ec1ba998c2e26cc85447cc58b352f2092ead46f506efed06176228e998e0fa206fdf52af31e37ad5fe2019815c6cdb476d51514383cca8bdc75044828abdf7355f1d94a02db49c3411ba042580b86d37c5e15403f7a3de36c1a96cb2ec2867d504980e6395dca2f1c0130042a26c10cc84fda15124350fbb54039ef5b113cd67c840e192dd69e8f5363b51dbac216da9b19209330b854af4f60a86fdb8f34b4f3f192b1b07f143b19736e03a21bbb806c106c05047bc2dd2597fcd1e21ada648c880f940052d450e702f57c61dc5199f98019df190b2dec6ce8c75a623903cfee0d51ef45576b158d48b89331988757a67174f198ca4938211c6decf3b20218f374adbfa6e334a1789df44b1715c47e3fef97bff5dfaf9c5cdfc7aa09842f5c639821cd141ae1aada6ea5f1ce57fbe42ef30eab2292de21c77438021647ef6bb94ae8869a99a5ce692847da3cb71a26404de31b19af63e7bf01ecb7a60115f3391881f99facbc6909cd10e85a43a204cdd6d6dd671781bc2f10e56eb5c43fba409ba0abecac20dd1629382bafade07bce3f63f0b30fe597c3117823e1e9b5b401185dd601535ad605d9a0ac16487a24c0532a732eda52e991bc692d17dc47df6901afd868a0ce1c41ec4a6f86f65e3d114464434432c92cd667ba1b7bff78d6621f710e90e2b05b061e20d826661b6d8531109da8e45833c26b7cd6ebbc80189c8fc9c3b7975f72b744d37ddacb11a79ecc980ac8040c4318ed1ed423df213ba66d0cbf32d72da84cefd1bcb7ff257ad3b4e5a0183686932eb6316aec9818dd0a165295f8f8a2f4fbb55c25dcad7704dda7372c6e66b04afa289877251f6d6d2189176fd6f829e5a0e6072a632bc27e8e8ad4afbc07e150b29c45965d52e6fe8016b9c8b73d5da109f116f70c5e35016f630e3ffe80fd3c773a71501bab231c61874bee54c967c64fe88b3f31c87f352b2461a8a203b5419a02934ff2da541da530d3a9418049f4fa23c0e335079c146c8d17e89f123152c7bfb9ea511a1c9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">This content is protected. Dm 0pwn to get password or leave - tysm.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://0pwn0.github.io">0pwn0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://0pwn0.github.io/2024/12/23/SQLmap/">https://0pwn0.github.io/2024/12/23/SQLmap/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Cheatsheet/">cheatsheet</a><a class="post-meta__tags" href="/tags/HackTheBox/">hackthebox</a><a class="post-meta__tags" href="/tags/CPTS/">cpts</a></div><div class="post-share"><div class="social-share" data-image="/img/banners/CPTS_cheatsheet_banner.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/2024/12/23/ShellAndPayloads/" title="HTB CPTS Cheatsheet - Shell And Payloads"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">HTB CPTS Cheatsheet - Shell And Payloads</div></div></div></a><a class="pagination-related  no-desc" href="/2024/12/23/SQLi/" title="HTB CPTS Cheatsheet - SQL Injection"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">HTB CPTS Cheatsheet - SQL Injection</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/2024/12/23/AttackingCommonApplications/" title="HTB CPTS Cheatsheet - Attacking Common Applications"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - Attacking Common Applications</div></div></div></a><a class="pagination-related" href="/2024/12/23/ActiveDirectoryEnumerationAndAttacks/" title="HTB CPTS Cheatsheet - Active Directory Enumeration And Attacks"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - Active Directory Enumeration And Attacks</div></div><div class="info-2"><div class="info-item-1">Initial Enumeration   Command Description    nslookup ns1.inlanefreight.com Used to query the domain name system and discover the IP address to domain name mapping of the target entered from a Linux-based host.   sudo tcpdump -i ens224 Used to start capturing network packets on the network interface proceeding the -i option a Linux-based host.   sudo responder -I ens224 -A Used to start responding to &amp; analyzing LLMNR, NBT-NS and MDNS queries on the interface specified proceeding the -I o...</div></div></div></a><a class="pagination-related no-desc" href="/2024/12/23/AttackingCommonServices/" title="HTB CPTS Cheatsheet - Attacking Common Services"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - Attacking Common Services</div></div></div></a><a class="pagination-related no-desc" href="/2024/12/23/BruteForcing/" title="HTB CPTS Cheatsheet - Brute Forcing"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - Brute Forcing</div></div></div></a><a class="pagination-related no-desc" href="/2024/12/23/FileUploadAttacks/" title="HTB CPTS Cheatsheet - File Upload Attacks"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - File Upload Attacks</div></div></div></a><a class="pagination-related no-desc" href="/2024/12/23/CommandInjections/" title="HTB CPTS Cheatsheet - Command Injection"><img class="cover" src="/img/banners/CPTS_cheatsheet_banner.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="info-item-2">HTB CPTS Cheatsheet - Command Injection</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avt.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">0pwn0</div><div class="author-info-description">A blog about CTF challenges, security research, and cybersecurity topics</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/uziii2208"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://discord.gg/YSUdcmdCJG" rel="external nofollow noreferrer" target="_blank" title="Discord"><i class="fab fa-discord" style="color: linear-gradient(45deg,;"></i></a><a class="social-icon" href="https://linkedin.com/in/corbierevn" rel="external nofollow noreferrer" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="color: linear-gradient(45deg,;"></i></a><a class="social-icon" href="mailto:unknown@attacker.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: linear-gradient(45deg,;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/28/esc15-cheatsheet/" title="ESC15 Offensive Deep-Dive Cheatsheet 2025 - Vietnamese Language"><img src="/img/banners/cheatsheet_banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ESC15 Offensive Deep-Dive Cheatsheet 2025 - Vietnamese Language"/></a><div class="content"><a class="title" href="/2025/11/28/esc15-cheatsheet/" title="ESC15 Offensive Deep-Dive Cheatsheet 2025 - Vietnamese Language">ESC15 Offensive Deep-Dive Cheatsheet 2025 - Vietnamese Language</a><time datetime="2025-11-27T17:00:00.000Z" title="Created 2025-11-28 00:00:00">2025-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/09/HackTheBox-NanoCorp-WriteUp/" title="HackTheBox - NanoCorp Writeup (Protected)"><img src="/img/banners/NanoCorp_banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HackTheBox - NanoCorp Writeup (Protected)"/></a><div class="content"><a class="title" href="/2025/11/09/HackTheBox-NanoCorp-WriteUp/" title="HackTheBox - NanoCorp Writeup (Protected)">HackTheBox - NanoCorp Writeup (Protected)</a><time datetime="2025-11-08T17:00:00.000Z" title="Created 2025-11-09 00:00:00">2025-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/04/HackTheBox-Fortress-AWS-WriteUp/" title="HackTheBox - AWS Fortress Writeup (Protected)"><img src="/img/banners/AWS_banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HackTheBox - AWS Fortress Writeup (Protected)"/></a><div class="content"><a class="title" href="/2025/11/04/HackTheBox-Fortress-AWS-WriteUp/" title="HackTheBox - AWS Fortress Writeup (Protected)">HackTheBox - AWS Fortress Writeup (Protected)</a><time datetime="2025-11-03T17:00:00.000Z" title="Created 2025-11-04 00:00:00">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/01/HackTheBox-Sherlock-Novitas-WriteUp/" title="HackTheBox - Novitas Writeup (Protected)"><img src="/img/banners/Novitas_banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HackTheBox - Novitas Writeup (Protected)"/></a><div class="content"><a class="title" href="/2025/11/01/HackTheBox-Sherlock-Novitas-WriteUp/" title="HackTheBox - Novitas Writeup (Protected)">HackTheBox - Novitas Writeup (Protected)</a><time datetime="2025-10-31T17:00:00.000Z" title="Created 2025-11-01 00:00:00">2025-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/23/ad-acls-cheetsheet/" title="AD ACLs Cheatsheet"><img src="/img/banners/cheatsheet_banner.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AD ACLs Cheatsheet"/></a><div class="content"><a class="title" href="/2025/10/23/ad-acls-cheetsheet/" title="AD ACLs Cheatsheet">AD ACLs Cheatsheet</a><time datetime="2025-10-22T17:00:00.000Z" title="Created 2025-10-23 00:00:00">2025-10-23</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 0pwn0</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Please enter search keyword" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div></body></html>
